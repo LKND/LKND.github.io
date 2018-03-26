@@ -15,10 +15,20 @@
     </tr>
     <tr>
       <td>
-        <input type="submit" width="200px" value="Find">
+        <input type="submit" width="200px" value="Find" id="findText">
       </td>
     </tr>
   </table>
 
 </body>
 </html>
+
+<script>
+  Function openPdf(){
+    var text=document.getElemntbyId("findText");
+     window.open(
+      'https://lknd.github.io/index.html&search='+text,
+      '_blank'
+    ); 
+  };
+</script>
