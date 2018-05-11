@@ -1910,6 +1910,9 @@ function webViewerInitialized() {
   } else {
     fileInput.value = null;
   }
+  if ('search' in params) {
+    searchPDF(params['search']);
+	}
   if (PDFViewerApplication.viewerPrefs['pdfBugEnabled']) {
     var hash = document.location.hash.substring(1);
     var hashParams = (0, _ui_utils.parseQueryString)(hash);
@@ -10185,6 +10188,16 @@ if (document.readyState === 'interactive' || document.readyState === 'complete')
   webViewerLoad();
 } else {
   document.addEventListener('DOMContentLoaded', webViewerLoad, true);
+}
+
+
+function searchPDF(td_text) {
+    PDFViewerApplication.findBar.open();
+    PDFViewerApplication.findBar.findField.value = td_text;
+    PDFViewerApplication.findBar.caseSensitive.checked = true;
+    PDFViewerApplication.findBar.highlightAll.checked = true;
+    PDFViewerApplication.findBar.findNextButton.click();
+    PDFViewerApplication.findBar.close();
 }
 
 /***/ })
